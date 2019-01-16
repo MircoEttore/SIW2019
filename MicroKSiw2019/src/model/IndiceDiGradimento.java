@@ -15,6 +15,7 @@ public class IndiceDiGradimento {
 	}
 	cv
 	
+	65
 	
 	public IndiceDiGradimento() {
 		super();
