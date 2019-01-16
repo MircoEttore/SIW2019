@@ -14,7 +14,7 @@ public class IndiceDiGradimento {
 		this.numeroVoti = numeroVoti;
 	}
 	cv
-	
+	dfds
 	65
 	
 	public IndiceDiGradimento() {
