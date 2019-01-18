@@ -133,7 +133,7 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 	public void update(Canzone canzone) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update ="update canzone SET Nome=?,Artista=?,Anno=?,Genere=?,IndiceDiGradimento=?,Album=?,CasaDiscografica=?,Url_canzoni=? WHERE idcanzone=?";
+			String update ="update canzone SET Nome = ?,Artista = ?, Anno = ? , Genere = ? , IndiceDiGradimento = ? , Album = ? , CasaDiscografica = ? , Url_canzoni = ? WHERE idcanzone = ? ";
 			
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, canzone.getTitolo());
