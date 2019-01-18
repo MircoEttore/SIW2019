@@ -187,7 +187,7 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 	public void delete(Canzone canzone) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String delete = "delete FROM studente WHERE idCanzone = ? ";
+			String delete = "delete FROM Canzone WHERE idCanzone = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setInt(1, canzone.getIdCanzone());
 			statement.executeUpdate();
