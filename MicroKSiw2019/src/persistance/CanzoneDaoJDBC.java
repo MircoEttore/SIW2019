@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.sql.DataSource;
 
 import model.Canzone;
 import persistence.dao.CanzoneDao;
