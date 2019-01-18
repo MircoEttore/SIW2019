@@ -20,7 +20,7 @@ public class UtenteCredenziali extends Utente {
 			PreparedStatement statement;
 			String query = "select * from utente where idUtente= ?";
 			statement = connection.prepareStatement(query);
-			statement.setInt(1, this.getId());
+			statement.setInt(1, this.getIdUtente());
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
 				return result.getString("password");

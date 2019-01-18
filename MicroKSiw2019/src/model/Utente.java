@@ -9,6 +9,95 @@ public class Utente {
 		private String nickname;
 		private String nome;
 		private String cognome;
+		private boolean utenteartista;
+		public int getIdUtente() {
+			return idUtente;
+		}
+
+		public void setIdUtente(int idUtente) {
+			this.idUtente = idUtente;
+		}
+
+		public int getIdArtista() {
+			return idArtista;
+		}
+
+		public void setIdArtista(int idArtista) {
+			this.idArtista = idArtista;
+		}
+
+		public String getNickname() {
+			return nickname;
+		}
+
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
+		}
+
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+
+		public String getCognome() {
+			return cognome;
+		}
+
+		public void setCognome(String cognome) {
+			this.cognome = cognome;
+		}
+
+		public String getTelefono() {
+			return telefono;
+		}
+
+		public void setTelefono(String telefono) {
+			this.telefono = telefono;
+		}
+
+		public String getIndirizzo() {
+			return indirizzo;
+		}
+
+		public void setIndirizzo(String indirizzo) {
+			this.indirizzo = indirizzo;
+		}
+
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		public String getConferma() {
+			return conferma;
+		}
+
+		public void setConferma(String conferma) {
+			this.conferma = conferma;
+		}
+
+		public Carrello getCarrelloUtente() {
+			return carrelloUtente;
+		}
+
+		public void setCarrelloUtente(Carrello carrelloUtente) {
+			this.carrelloUtente = carrelloUtente;
+		}
+
 		private String telefono;
 		private String indirizzo;
 		private String email;
@@ -35,68 +124,14 @@ public class Utente {
 			
 		}
 
-		public int getId() {
-			return idUtente;
+		public boolean isUtenteartista() {
+			return utenteartista;
 		}
 
-		public void setId(int id) {
-			this.idUtente = id;
-		}
-
-		public String getName() {
-			return nome;
-		}
-
-		public void setName(String name) {
-			this.nome = name;
-		}
-
-		public String getSurname() {
-			return cognome;
-		}
-
-		public void setSurname(String surname) {
-			this.cognome = surname;
-		}
-
-		public String getPhone() {
-			return telefono;
-		}
-
-		public void setPhone(String phone) {
-			this.telefono = phone;
-		}
-
-		public String getAddress() {
-			return indirizzo;
-		}
-
-		public void setAddress(String address) {
-			this.indirizzo = address;
-		}
-
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
+		public void setUtenteartista(boolean utenteartista) {
+			this.utenteartista = utenteartista;
 		}
 
 		
-		public String getPassword() {
-			return password;
-		}
-
-		public void setPassword(String password) {
-			this.password = password;
-		}
-
-		public String getConfirm() {
-			return conferma;
-		}
-
-		public void setConfirm(String confirm) {
-			this.conferma = confirm;
-		}
+		
 	}
