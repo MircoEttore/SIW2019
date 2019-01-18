@@ -9,7 +9,6 @@ import java.util.List;
 
 
 import model.Canzone;
-import persistence.PersistenceException;
 import persistence.dao.CanzoneDao;
 
 
@@ -139,10 +138,13 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, canzone.getTitolo());
 			statement.setString(2,canzone.getArtista().getNomeArtista());
-			statement.setString(3, canzone.getGenere());
-			Integer anno = canzone.getAnno();
-			statement.setInt(4,anno);
-			statement.setString(5, canzone.getCasaDiscografica());
+			statement.setInt(3, canzone.getAnno());
+			statement.setString(4, canzone.getGenere());
+			statement.setInt(5,canzone.getIndiceDiGradimento().getVotoAttuale());
+			statement.setString(6, canzone.getAlbum());
+			statement.setString(7,canzone.getCasaDiscografica());
+			statement.setString(8,canzone.getUrl());
+			statement.setInt(9,canzone.getIdCanzone());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -154,6 +156,9 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 			}
 		}
 	}
+	
+	
+	
 /*
 	
 	
