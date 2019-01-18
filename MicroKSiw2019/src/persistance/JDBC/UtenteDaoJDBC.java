@@ -49,7 +49,7 @@ public class UtenteDaoJDBC implements UtenteDao{
 	public void update(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update ="update canzone SET Nome=?,Cognome=?,Nickname=?,Email=?,idUtente=?, utenteartista=? WHERE idutente=?";
+			String update ="update canzone SET Nome=?,Cognome=?,Nickname=?,Email=?,idUtente=?, utenteartista=? WHERE idUtente=?";
 			
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, utente.getNome());
@@ -75,7 +75,7 @@ public class UtenteDaoJDBC implements UtenteDao{
 	public void delete(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String delete = "delete FROM studente WHERE idCanzone = ? ";
+			String delete = "delete FROM studente WHERE idUtente = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setInt(1, utente.getIdUtente());
 			statement.executeUpdate();
