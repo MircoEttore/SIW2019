@@ -3,7 +3,6 @@ package persistence.dao;
 
 import java.util.List;
 
-import model.Corso;
 
 public interface PlaylistDao {
 	/*
