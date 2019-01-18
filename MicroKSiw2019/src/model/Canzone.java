@@ -14,11 +14,23 @@ public class Canzone {
 	private String casaDiscografica;
     private IndiceDiGradimento indiceDiGradimento;
 	private Integer anno;
+	private String url;
 	
-	
+	public String getUrl() {
+		return url;
+	}
+
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+
 	public Canzone() {
 		artista=new Artista();
-		indiceDiGradimento=new IndiceDiGradimento();
+		setIndiceDiGradimento(new IndiceDiGradimento());
 		album="";
 		genere="";
 		casaDiscografica="";
@@ -36,7 +48,7 @@ public class Canzone {
 		this.album = album;
 		this.genere = genere;
 		this.casaDiscografica = casaDiscografica;
-		this.indiceDiGradimento = indiceDiGradimento;
+		this.setIndiceDiGradimento(indiceDiGradimento);
 		this.anno = anno;
 	}
 
@@ -108,6 +120,18 @@ public class Canzone {
 
 	public void setAnno(Integer anno) {
 		this.anno = anno;
+	}
+
+
+
+	public IndiceDiGradimento getIndiceDiGradimento() {
+		return indiceDiGradimento;
+	}
+
+
+
+	public void setIndiceDiGradimento(IndiceDiGradimento indiceDiGradimento) {
+		this.indiceDiGradimento = indiceDiGradimento;
 	}
 	
 	

@@ -9,6 +9,7 @@ import java.util.List;
 
 
 import model.Canzone;
+import persistence.PersistenceException;
 import persistence.dao.CanzoneDao;
 
 
@@ -23,16 +24,18 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 	public void save(Canzone canzone) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String insert = "insert into canzone(matricola, nome, cognome,"
-					+ " data_nascita, scuola_id) values (?,?,?,?,?)";
+			String insert = "insert into canzone(Nome,Artista,Anno,Genere,IndiceDiGradimento,Album,CasaDiscografica,Url_canzoni, idcanzone) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, canzone.getTitolo());
 			statement.setString(2,canzone.getArtista().getNomeArtista());
-			statement.setString(3, canzone.getGenere());
-			Integer anno = canzone.getAnno();
-			statement.setInt(4,anno);
-			statement.setString(5, canzone.getCasaDiscografica());
+			statement.setInt(3, canzone.getAnno());
+			statement.setString(4, canzone.getGenere());
+			statement.setInt(5,canzone.getIndiceDiGradimento().getVotoAttuale());
+			statement.setString(6, canzone.getAlbum());
+			statement.setString(7,canzone.getUrl());
+			
 			statement.executeUpdate();
+			System.out.println("Record inserita nella tabella!");
 			
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -131,7 +134,8 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 	public void update(Canzone canzone) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update canzone SET nome = ?, cognome = ?, data_nascita = ?, scuola_codice = ? WHERE matricola=?";
+			String update ="update canzone SET Nome=?,Artista=?,Anno=?,Genere=?,IndiceDiGradimento=?,Album=?,CasaDiscografica=?,Url_canzoni=? WHERE idcanzone=?";
+			
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, canzone.getTitolo());
 			statement.setString(2,canzone.getArtista().getNomeArtista());
@@ -151,23 +155,7 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 		}
 	}
 /*
-	public void delete(Studente studente) {
-		Connection connection = this.dataSource.getConnection();
-		try {
-			String delete = "delete FROM studente WHERE matricola = ? ";
-			PreparedStatement statement = connection.prepareStatement(delete);
-			statement.setString(1, studente.getMatricola());
-			statement.executeUpdate();
-		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
-			}
-		}
-	}
+	
 	
 	@Override
 	public void setPassword(Studente studente, String password) {
@@ -189,4 +177,23 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 		}
 		
 	}*/
+
+	@Override
+	public void delete(Canzone canzone) {
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String delete = "delete FROM studente WHERE idCanzone = ? ";
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.setInt(1, canzone.getIdCanzone());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+	}
 }
