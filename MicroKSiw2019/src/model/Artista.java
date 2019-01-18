@@ -21,6 +21,30 @@ public class Artista {
 		
 		
 	}
+
+	public String getNomeArtista() {
+		return nomeArtista;
+	}
+
+	public void setNomeArtista(String nomeArtista) {
+		this.nomeArtista = nomeArtista;
+	}
+
+	public int getIdArtista() {
+		return idArtista;
+	}
+
+	public void setIdArtista(int idArtista) {
+		this.idArtista = idArtista;
+	}
+
+	public CatalogoMusicale getC() {
+		return c;
+	}
+
+	public void setC(CatalogoMusicale c) {
+		this.c = c;
+	}
 	
 	
 
