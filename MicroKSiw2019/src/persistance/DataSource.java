@@ -3,7 +3,7 @@ package persistance;
 
 	import java.sql.*;
 
-	class DataSource {
+	public class DataSource {
 		
 		final private String dbURI;// = "jdbc:postgresql://localhost/test";
 		final private String userName;// = "postgres";

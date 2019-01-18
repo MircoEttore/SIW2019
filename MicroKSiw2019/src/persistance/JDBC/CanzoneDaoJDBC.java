@@ -1,4 +1,4 @@
-package persistance;
+package persistance.JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 
 import model.Canzone;
+import persistance.DataSource;
+import persistance.PersistenceException;
 import persistence.dao.CanzoneDao;
 
 
