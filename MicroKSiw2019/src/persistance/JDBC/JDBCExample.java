@@ -32,7 +32,7 @@ public class JDBCExample {
 //			Canzone cc = new Canzone(a, "Stairway To Heaven", "Led Zeppelin I", "Heavy Rock", "-", i,
 //					"notAvaible", 1974);ciuccia
 //			System.err.println(cc);   
-//			canzone.save(cc);   
+//			canzone.save(cc);   mmm
 			
 			
 
