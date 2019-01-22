@@ -65,6 +65,33 @@ public class Canzone {
 		this.url=url;
 	}
 
+	
+
+
+
+	public Canzone(int idCanzone, Artista artista, String titolo, String album, String genere, String casaDiscografica,
+			IndiceDiGradimento indiceDiGradimento,  String url,Integer anno) {
+		super();
+		this.idCanzone = idCanzone;
+		this.artista = artista;
+		this.titolo = titolo;
+		this.album = album;
+		this.genere = genere;
+		this.casaDiscografica = casaDiscografica;
+		this.indiceDiGradimento = indiceDiGradimento;
+		this.anno = anno;
+		this.url = url;
+	}
+
+
+
+	public Canzone(Integer id) {
+		this.idCanzone = id;
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public int getIdCanzone() {
 		return idCanzone;
 	}
