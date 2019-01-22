@@ -51,7 +51,19 @@ public class Canzone {
 		this.setIndiceDiGradimento(indiceDiGradimento);
 		this.anno = anno;
 	}
-
+	public Canzone( Artista artista, String titolo, String album, String genere, String casaDiscografica,
+			IndiceDiGradimento indiceDiGradimento,String url ,Integer anno) {
+		super();
+		
+		this.artista = artista;
+		this.titolo = titolo;
+		this.album = album;
+		this.genere = genere;
+		this.casaDiscografica = casaDiscografica;
+		this.setIndiceDiGradimento(indiceDiGradimento);
+		this.anno = anno;
+		this.url=url;
+	}
 
 	public int getIdCanzone() {
 		return idCanzone;

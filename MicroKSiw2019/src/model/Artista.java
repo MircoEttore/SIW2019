@@ -15,7 +15,11 @@ public class Artista {
 		this.nomeArtista = nomeArtista;
 		this.idArtista = idArtista;
 	}
-
+	public Artista(String nomeArtista) {
+		super();
+		this.nomeArtista = nomeArtista;
+		this.idArtista = idArtista;
+	}
 	public void generaIdArtista() {
 		int num =c.inserisciUnArtista(this) ;
 		

@@ -13,6 +13,12 @@ public class IndiceDiGradimento {
 		this.votoAttuale = votoAttuale;
 		this.numeroVoti = numeroVoti;
 	}
+	public IndiceDiGradimento(Integer votoAttuale) {
+		super();
+	
+		this.votoAttuale = votoAttuale;
+		
+	}
 	
 	public IndiceDiGradimento() {
 		super();
