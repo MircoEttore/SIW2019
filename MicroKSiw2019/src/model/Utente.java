@@ -123,6 +123,20 @@ public class Utente {
 			this.password = password;
 			
 		}
+		public Utente( String name, String surname, String phone, String address, String email, String password,String nickname) {
+			super();
+			carrelloUtente=new Carrello();
+		
+			this.nickname=nickname;
+			this.nome = name;
+			this.cognome = surname;
+			this.telefono = phone;
+			this.indirizzo = address;
+			this.email = email;
+			this.password = password;
+			
+		}
+
 
 		public boolean isUtenteartista() {
 			return utenteartista;
