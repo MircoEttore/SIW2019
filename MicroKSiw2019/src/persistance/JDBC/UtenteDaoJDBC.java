@@ -2,8 +2,14 @@ package persistance.JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Artista;
+import model.Canzone;
+import model.IndiceDiGradimento;
 import model.Utente;
 import model.Utente;
 import model.Utente;
@@ -13,23 +19,25 @@ import persistence.dao.UtenteDao;
 
 public class UtenteDaoJDBC implements UtenteDao{
 	private DataSource dataSource;
+	private Connection connection = null;
+	private PreparedStatement statement = null;
 
 	public UtenteDaoJDBC(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
 	public void save(Utente utente) {
-		Connection connection = this.dataSource.getConnection();
+	connection = this.dataSource.getConnection();
 		try {  
-			String insert = "insert into utente(nome,cognome,nickname,email,utente_artista) values (?,?,?,?,?)";
-			PreparedStatement statement = connection.prepareStatement(insert);
+			String insert = "insert into utente(nome,cognome,nickname,email,utente_artista,password,indirizzo) values (?,?,?,?,?,?,?)";
+			statement = connection.prepareStatement(insert);
 			statement.setString(1, utente.getNome());
 			statement.setString(2,utente.getCognome());
 			statement.setString(3, utente.getNickname());
 			statement.setString(4, utente.getEmail());
-			
 			statement.setBoolean(5, utente.isUtenteartista());
-			
+			statement.setString(7, utente.getPassword());
+			statement.setString(8, utente.getIndirizzo());
 			statement.executeUpdate();
 			System.out.println("Record inserita nella tabella!");
 			
@@ -45,19 +53,70 @@ public class UtenteDaoJDBC implements UtenteDao{
 	}
 	
 	
+	@Override
+	public List<Utente> findAll() {
+
+		 connection = this.dataSource.getConnection();
+		ArrayList<Utente>utenti = new ArrayList<>();
+		try {
+			Utente utente;
+			PreparedStatement statement;
+			String query = "select * from utente";
+			statement = connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				utente = new Utente();
+				utente.setIdUtente(result.getInt("id_utente"));				
+				utente.setNome(result.getString("nome"));
+				utente.setCognome(result.getString("cognome"));
+				utente.setNickname(result.getString("nickname"));
+				utente.setEmail(result.getString("email"));
+				utente.setUtenteartista(result.getBoolean("artista_utente"));
+				utente.setPassword((result.getString("password")));
+				utente.setIndirizzo(result.getString("indirizzo"));
+
+/*this.idUtente = id;
+			this.nickname=nickname;
+			this.nome = name;
+			this.cognome = surname;
+			this.telefono = phone;
+			this.indirizzo = address;
+			this.email = email;
+			this.password = password;*/
+				utenti.add(utente);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return utenti;
+	}
+	
+	
+	
+	
+	
+	
+	
 	public void update(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update ="update utente SET nome=?,cognome=?,nickname=?,email=?,utente_artista=? WHERE id_utente=?";
+			String update ="update utente SET nome=?,cognome=?,nickname=?,email=?,utente_artista=? password=?,indirizzo=? WHERE id_utente=?";
 			
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, utente.getNome());
 			statement.setString(2,utente.getCognome());
 			statement.setString(3, utente.getNickname());
 			statement.setString(4, utente.getEmail());
-			
 			statement.setBoolean(5, utente.isUtenteartista());
 			statement.setInt(6,utente.getIdUtente());
+			statement.setString(7, utente.getPassword());
+			statement.setString(8, utente.getIndirizzo());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
