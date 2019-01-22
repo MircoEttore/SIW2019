@@ -2,7 +2,7 @@ package persistance.JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
@@ -21,13 +21,12 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 		this.dataSource = dataSource;
 	}
 
-	public void save(Canzone canzone) {
-		this.connection=this.dataSource.getConnection();
-		
+	public void save(Canzone canzone) throws SQLException {
+		this.connection = this.dataSource.getConnection();
 
 		try {
 			String insert = "insert into canzone(titolo,artista,genere,anno,casadiscografica,indicedigradimento,url) values (?,?,?,?,?,?,?)";
-			 statement = connection.prepareStatement(insert);
+			statement = connection.prepareStatement(insert);
 			statement.setString(1, canzone.getTitolo());
 			statement.setString(2, canzone.getArtista().getNomeArtista());
 			statement.setString(3, canzone.getGenere());
@@ -37,23 +36,41 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 			statement.setString(7, canzone.getUrl());
 
 			statement.executeUpdate();
-statement.close();
-
-		addArtista(canzone);
-
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+
+			if (statement != null) {
+				statement.close();
+			}
+
+			if (connection != null) {
+				connection.close();
+			}
+			addArtista(canzone);
 		}
 
-}
-	private void addArtista(Canzone canzone) {
-			try {
-			
-		String insert = "insert into artista(nome) values (?)";
-		this.statement=this.connection.prepareStatement(insert);
-			statement.setString(1, canzone.getArtista().getNomeArtista());
-			statement.executeQuery();
+	}
 
+	private void addArtista(Canzone canzone) {
+		try {
+			Boolean artistaPresente=false;
+			connection = this.dataSource.getConnection();
+
+			//String insert = "insert into artista(nome) values (?)";
+			String sql="SELECT Nome FROM artista WHERE nome= ?";
+			this.statement = this.connection.prepareStatement(sql);
+			statement.setString(1,canzone.getArtista().getNomeArtista());
+
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+
+				String username = rs.getString("nome");
+				System.out.println(username);
+				
+
+			}
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -24,7 +24,7 @@ public class JDBCExample {
 							IndiceDiGradimento i=new IndiceDiGradimento(6);
 							int ii =i.getVotoAttuale();
 							Artista a =new Artista("Ligabue");
-							Canzone cc=new  Canzone(a," titolo", "album"," genere"," casaDiscografica",i," url",6654);
+							Canzone cc=new  Canzone(a," titolssssso", "album"," genere"," casaDiscografica",i," url",6654);
 					
 							canzone.save(cc);
 				
