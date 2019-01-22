@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
-
 import model.Canzone;
 import persistance.DataSource;
 import persistance.PersistenceException;
