@@ -20,16 +20,15 @@ public class UtenteDaoJDBC implements UtenteDao{
 
 	public void save(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
-		try {
-			String insert = "insert into utente(Nome,Cognome,Nickname,Email,idUtente, utenteartista ) values (?,?,?,?,?,?)";
+		try {  
+			String insert = "insert into utente(nome,cognome,nickname,email,utente_artista) values (?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, utente.getNome());
 			statement.setString(2,utente.getCognome());
 			statement.setString(3, utente.getNickname());
 			statement.setString(4, utente.getEmail());
-			statement.setInt(5,utente.getIdUtente());
-			statement.setBoolean(6, utente.isUtenteartista());
 			
+			statement.setBoolean(5, utente.isUtenteartista());
 			
 			statement.executeUpdate();
 			System.out.println("Record inserita nella tabella!");
@@ -49,16 +48,16 @@ public class UtenteDaoJDBC implements UtenteDao{
 	public void update(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update ="update canzone SET Nome=?,Cognome=?,Nickname=?,Email=?,idUtente=?, utenteartista=? WHERE idUtente=?";
+			String update ="update utente SET nome=?,cognome=?,nickname=?,email=?,utente_artista=? WHERE id_utente=?";
 			
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, utente.getNome());
 			statement.setString(2,utente.getCognome());
 			statement.setString(3, utente.getNickname());
 			statement.setString(4, utente.getEmail());
-			statement.setInt(5,utente.getIdUtente());
-			statement.setBoolean(6, utente.isUtenteartista());
 			
+			statement.setBoolean(5, utente.isUtenteartista());
+			statement.setInt(6,utente.getIdUtente());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -75,7 +74,7 @@ public class UtenteDaoJDBC implements UtenteDao{
 	public void delete(Utente utente) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String delete = "delete FROM studente WHERE idUtente = ? ";
+			String delete = "delete FROM utente WHERE id_utente = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.setInt(1, utente.getIdUtente());
 			statement.executeUpdate();
