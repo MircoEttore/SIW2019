@@ -26,10 +26,8 @@ public class Canzone {
 		this.url = url;
 	}
 
-
-
 	public Canzone() {
-		artista=new Artista();
+		artista=new Artista("" );
 		setIndiceDiGradimento(new IndiceDiGradimento());
 		album="";
 		genere="";

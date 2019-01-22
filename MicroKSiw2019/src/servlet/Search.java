@@ -28,12 +28,6 @@ public class Search extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		String keyWord ; 
-		
-		keyWord = request.getParameter("artista");
-		keyWord = request.getParameter("titolo");
-		keyWord = request.getParameter("album");
 	}
 
 	/**
