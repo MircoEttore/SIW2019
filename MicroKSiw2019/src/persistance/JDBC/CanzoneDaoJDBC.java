@@ -63,9 +63,13 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 			statement.setString(1,canzone.getArtista().getNomeArtista());
 
 			ResultSet rs = statement.executeQuery();
-			while (rs.next()) {
+			while (rs.next()&&!artistaPresente) {
 
 				String username = rs.getString("nome");
+				if (username==canzone.getArtista().getNomeArtista())
+					artistaPresente=true;
+				else
+					
 				System.out.println(username);
 				
 
