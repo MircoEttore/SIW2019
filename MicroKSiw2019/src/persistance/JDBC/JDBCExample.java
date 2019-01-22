@@ -1,14 +1,10 @@
 package persistance.JDBC;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
 
 import model.Artista;
 import model.Canzone;
 import model.IndiceDiGradimento;
 import persistance.DataSource;
-import persistance.PostgresDAOFactory;
 
 public class JDBCExample {
 	public static void main(String args[]) {
@@ -21,15 +17,22 @@ public class JDBCExample {
 //					"postgres");
 			DataSource dataSource = new DataSource("jdbc:postgresql://192.168.1.6:5432/Database_MicroK", "postgres",
 					"postgres");
+	
+			
 			CanzoneDaoJDBC canzone = new CanzoneDaoJDBC(dataSource);
 			IndiceDiGradimento i = new IndiceDiGradimento(6);
 			int ii = i.getVotoAttuale();
-			Artista a = new Artista("Led Zeppelin");
-			Canzone cc = new Canzone(a, "Stairway To Heaven", "Led Zeppelin I", "Heavy Rock", "-", i,
-					"notAvaible", 1974);
-
-			System.err.println(cc);
-			canzone.save(cc);
+//			Artista a = new Artista("Led Zeppelin");
+//			Canzone cc = new Canzone(a, "Stairway To Heaven", "Led Zeppelin I", "Heavy Rock", "-", i,
+//					"notAvaible", 1974);
+//			System.err.println(cc);
+//			canzone.save(cc);
+			
+			
+			ArtistaDaoJDBC artistaJDBC = new ArtistaDaoJDBC(dataSource) ; 
+			Artista artista0 = new Artista("Bionda") ; 
+			System.err.println(artistaJDBC);
+			artistaJDBC.save(artista0); 			
 
 			System.out.println("ALL DONE");
 		} catch (Exception e) {
