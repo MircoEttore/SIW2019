@@ -1,9 +1,11 @@
 package persistance.JDBC;
 
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
 
@@ -52,32 +54,46 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 
 	}
 
-	private void addArtista(Canzone canzone) {
+	private void addArtista(Canzone canzone) throws SQLException {
 		try {
-			Boolean artistaPresente=false;
+			Boolean artistaPresente = false;
 			connection = this.dataSource.getConnection();
 
-			//String insert = "insert into artista(nome) values (?)";
-			String sql="SELECT Nome FROM artista WHERE nome= ?";
+			String sql = "SELECT Nome FROM artista WHERE nome= ?";
 			this.statement = this.connection.prepareStatement(sql);
-			statement.setString(1,canzone.getArtista().getNomeArtista());
+			statement.setString(1, canzone.getArtista().getNomeArtista());
 
 			ResultSet rs = statement.executeQuery();
-			while (rs.next()&&!artistaPresente) {
-
+			//Se è presente nella Resulset imposta l'artista come presente 
+			while (rs.next()) {
 				String username = rs.getString("nome");
-				if (username==canzone.getArtista().getNomeArtista())
-					artistaPresente=true;
-				else
-					
+				artistaPresente = true;
 				System.out.println(username);
-				
-
 			}
+			// Se non è presente nella Resulset imposta l'artista lo crea
+			if (artistaPresente == false) {
+				statement.addBatch();
+				String insert = "insert into artista(nome) values (?)";
+				statement = connection.prepareStatement(insert);
+				statement.setString(1, canzone.getArtista().getNomeArtista());
+				statement.executeUpdate();
+				artistaPresente = false;
+			}
+
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+
+			if (statement != null) {
+				statement.close();
+			}
+
+			if (connection != null) {
+				connection.close();
+			}
+
 		}
 	}
 
