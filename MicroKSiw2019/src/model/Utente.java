@@ -10,6 +10,23 @@ public class Utente {
 		private String nome;
 		private String cognome;
 		private boolean utenteartista;
+		
+		
+		
+		
+		public Utente( String name, String surname,String nickname, String email,boolean utente ,String password,String address) {
+			// TODO Auto-generated constructor stub
+			this.nickname=nickname;
+			this.nome = name;
+			this.cognome = surname;
+			this.indirizzo = address;
+			this.email = email;
+			this.password = password;
+			this.utenteartista=utente;
+		}
+		
+		
+		
 		public int getIdUtente() {
 			return idUtente;
 		}
@@ -137,6 +154,8 @@ public class Utente {
 			
 		}
 
+
+		
 
 		public boolean isUtenteartista() {
 			return utenteartista;

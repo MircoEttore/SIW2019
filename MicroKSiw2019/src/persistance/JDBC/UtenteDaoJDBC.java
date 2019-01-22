@@ -36,8 +36,8 @@ public class UtenteDaoJDBC implements UtenteDao{
 			statement.setString(3, utente.getNickname());
 			statement.setString(4, utente.getEmail());
 			statement.setBoolean(5, utente.isUtenteartista());
-			statement.setString(7, utente.getPassword());
-			statement.setString(8, utente.getIndirizzo());
+			statement.setString(6, utente.getPassword());
+			statement.setString(7, utente.getIndirizzo());
 			statement.executeUpdate();
 			System.out.println("Record inserita nella tabella!");
 			
@@ -71,18 +71,11 @@ public class UtenteDaoJDBC implements UtenteDao{
 				utente.setCognome(result.getString("cognome"));
 				utente.setNickname(result.getString("nickname"));
 				utente.setEmail(result.getString("email"));
-				utente.setUtenteartista(result.getBoolean("artista_utente"));
+				utente.setUtenteartista(result.getBoolean("utente_artista"));
 				utente.setPassword((result.getString("password")));
 				utente.setIndirizzo(result.getString("indirizzo"));
 
-/*this.idUtente = id;
-			this.nickname=nickname;
-			this.nome = name;
-			this.cognome = surname;
-			this.telefono = phone;
-			this.indirizzo = address;
-			this.email = email;
-			this.password = password;*/
+
 				utenti.add(utente);
 			}
 		} catch (SQLException e) {

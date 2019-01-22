@@ -4,6 +4,7 @@ package persistance.JDBC;
 import model.Artista;
 import model.Canzone;
 import model.IndiceDiGradimento;
+import model.Utente;
 import persistance.DataSource;
 
 public class JDBCExample {
@@ -14,10 +15,9 @@ public class JDBCExample {
 
 			Class.forName("org.postgresql.Driver") ; 
 //<<<<<<< HEAD
-//			DataSource dataSource = new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK", "postgres",
-//					"postgres");
-			DataSource dataSource = new DataSource("jdbc:postgresql://192.168.1.6:5432/Database_MicroK", "postgres",
-					"postgres");
+			DataSource dataSource = new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK", "postgres","postgres");
+	//		DataSource dataSource = new DataSource("jdbc:postgresql://192.168.1.6:5432/Database_MicroK", "postgres",
+					//"postgres");
 	
 			
 //=======
@@ -37,21 +37,21 @@ public class JDBCExample {
 			
 
 			
-			ArtistaDaoJDBC artistaJDBC = new ArtistaDaoJDBC(dataSource) ; 
-			Artista artista0 = new Artista("Bionda" , 13) ; 
-			System.err.println(artistaJDBC);
-			artistaJDBC.delete(artista0); 			
+		//	ArtistaDaoJDBC artistaJDBC = new ArtistaDaoJDBC(dataSource) ; 
+		///	Artista artista0 = new Artista("Bionda" , 13) ; 
+		//	System.err.println(artistaJDBC);
+		//	artistaJDBC.delete(artista0); 			
 
 
 //=======
-			Artista a = new Artista("Led ");
+			//Artista a = new Artista("Led ");
 			
 			
 			
+			Utente u= new Utente("nome","cognome","nickname","email",false,"password","indirizzo");
 			
-			
-			
-			
+			UtenteDaoJDBC a=new UtenteDaoJDBC(dataSource);
+			System.out.println(a.findAll().get(1).getCognome());
 			
 			
 			
