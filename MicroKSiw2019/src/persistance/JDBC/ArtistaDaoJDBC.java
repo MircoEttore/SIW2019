@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import model.Artista;
 import model.Canzone;
 import persistance.DataSource;
+import persistance.PersistenceException;
 import persistence.dao.ArtistaDao;
 
 public class ArtistaDaoJDBC implements ArtistaDao {
@@ -117,13 +118,43 @@ public class ArtistaDaoJDBC implements ArtistaDao {
 
 	@Override
 	public void update(Artista artista) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			//String update = "update canzone SET Nome = ?,Artista = ?, Anno = ? , Genere = ? , IndiceDiGradimento = ? , Album = ? , CasaDiscografica = ? , Url_canzoni = ? WHERE idcanzone = ? ";
+			String update="update artista SET nome= ? Where idartista=?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, artista.getNomeArtista());
+			statement.setInt(2,artista.getIdArtista());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 
 	}
 
 	@Override
 	public void delete(Artista artista) {
-		// TODO Auto-generated method stub
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String delete = "delete FROM artista WHERE idartista = ? ";
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.setInt(1, artista.getIdArtista());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
 
 	}
 

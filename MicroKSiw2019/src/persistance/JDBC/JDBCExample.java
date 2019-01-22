@@ -13,21 +13,21 @@ public class JDBCExample {
 			// p=new PostgresDAOFactory();
 
 			Class.forName("org.postgresql.Driver") ; 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //			DataSource dataSource = new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK", "postgres",
 //					"postgres");
 			DataSource dataSource = new DataSource("jdbc:postgresql://192.168.1.6:5432/Database_MicroK", "postgres",
 					"postgres");
 	
 			
-=======
+//=======
 			//DataSource dataSource = new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK", "postgres","postgres");
-			DataSource dataSource = new DataSource("jdbc:postgresql://192.168.1.6:5432/Database_MicroK", "postgres","postgres");
->>>>>>> branch 'master' of https://github.com/MircoEttore/SIW2019
-			CanzoneDaoJDBC canzone = new CanzoneDaoJDBC(dataSource);
-			IndiceDiGradimento i = new IndiceDiGradimento(6);
-			int ii = i.getVotoAttuale();
-<<<<<<< HEAD
+//			DataSource dataSource = new DataSource("jdbc:postgresql://192.168.1.6:5432/Database_MicroK", "postgres","postgres");
+//>>>>>>> branch 'master' of https://github.com/MircoEttore/SIW2019
+//			CanzoneDaoJDBC canzone = new CanzoneDaoJDBC(dataSource);
+//			IndiceDiGradimento i = new IndiceDiGradimento(6);
+//			int ii = i.getVotoAttuale();
+//<<<<<<< HEAD
 //			Artista a = new Artista("Led Zeppelin");
 //			Canzone cc = new Canzone(a, "Stairway To Heaven", "Led Zeppelin I", "Heavy Rock", "-", i,
 //					"notAvaible", 1974);
@@ -35,24 +35,36 @@ public class JDBCExample {
 //			canzone.save(cc);
 			
 			
-			ArtistaDaoJDBC artistaJDBC = new ArtistaDaoJDBC(dataSource) ; 
-			Artista artista0 = new Artista("Bionda") ; 
-			System.err.println(artistaJDBC);
-			artistaJDBC.save(artista0); 			
 
-			System.out.println("ALL DONE");
-=======
+			
+			ArtistaDaoJDBC artistaJDBC = new ArtistaDaoJDBC(dataSource) ; 
+			Artista artista0 = new Artista("Bionda" , 13) ; 
+			System.err.println(artistaJDBC);
+			artistaJDBC.delete(artista0); 			
+
+
+//=======
 			Artista a = new Artista("Led ");
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			//Canzone cc = new Canzone(5,a, "Stairway To Heaven", "Led Zeppelin I", " Rock", "-", i,"notAvaible", 1974);
 //Canzone cc= new Canzone(4);
 		//	System.err.println(cc);
 			
 			//canzone.save(cc);
 		//canzone.update(cc);
-		System.out.println(canzone.findAll().get(1).getTitolo());
+//		System.out.println(canzone.findAll().get(1).getTitolo());
 	
 		System.out.println("ALL DONE");
->>>>>>> branch 'master' of https://github.com/MircoEttore/SIW2019
+//>>>>>>> branch 'master' of https://github.com/MircoEttore/SIW2019
 		} catch (Exception e) {
 			// System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC
 			// driver\n"+e);
