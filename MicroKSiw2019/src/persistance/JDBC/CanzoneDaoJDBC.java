@@ -10,15 +10,18 @@ import java.util.LinkedList;
 
 import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
 
+import model.Artista;
 import model.Canzone;
-import model.Scuola;
-import model.Studente;
+import model.IndiceDiGradimento;
+
 import persistance.DataSource;
 import persistance.PersistenceException;
-import persistence.ScuolaDaoJDBC;
-import persistence.StudenteCredenziali;
+
 import persistence.dao.CanzoneDao;
-import persistence.dao.ScuolaDao;
+
+import java.util.LinkedList;
+
+
 
 public class CanzoneDaoJDBC implements CanzoneDao {
 	private DataSource dataSource;
@@ -131,28 +134,33 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 		}
 	}
 
+
 @Override
-public List<Canzone> findAll() {
+public java.util.List<Canzone> findAll() {
+
 	 connection = this.dataSource.getConnection();
-	List<Canzone>canzoni = new LinkedList<>();
+	ArrayList<Canzone>canzoni = new ArrayList<>();
 	try {
 		Canzone canzone;
 		PreparedStatement statement;
-		String query = "select * from studente";
+		String query = "select * from canzone";
 		statement = connection.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
 		while (result.next()) {
 			canzone = new Canzone();
-			canzone.setIdCanzone(result.getString("idcanzone"));				
+			canzone.setIdCanzone(result.getInt("idcanzone"));				
 			canzone.setTitolo(result.getString("titolo"));
-			canzone.setArtista(result.getString("artista"));
-			
-			
-			ScuolaDao scuolaDao = new ScuolaDaoJDBC(dataSource);
-			Scuola scuola = scuolaDao.findByPrimaryKey(result.getLong("scuola_id"));
-			canzone.setScuolaDiDiploma(scuola);
-			
-			studenti.add(canzone);
+			canzone.setArtista(new Artista (result.getString("artista")));
+			canzone.setGenere(result.getString("genere"));
+			canzone.setAnno(result.getInt("anno"));
+			canzone.setCasaDiscografica(result.getString("casadiscografica"));
+			canzone.setIndiceDiGradimento(new IndiceDiGradimento(result.getInt("IndiceDiGradimento")));
+			canzone.setUrl(result.getString("url"));
+			canzone.setAlbum(result.getString("album"));
+			canzone.setIdCanzone(result.getInt("idcanzone"));
+					
+						
+			canzoni.add(canzone);
 		}
 	} catch (SQLException e) {
 		throw new PersistenceException(e.getMessage());
@@ -163,7 +171,7 @@ public List<Canzone> findAll() {
 			throw new PersistenceException(e.getMessage());
 		}
 	}
-	return studenti;
+	return canzoni;
 }
 
 	@Override
@@ -184,4 +192,6 @@ public List<Canzone> findAll() {
 			}
 		}
 	}
+
+	
 }

@@ -24,13 +24,14 @@ public class JDBCExample {
 			int ii = i.getVotoAttuale();
 			Artista a = new Artista("Led ");
 			//Canzone cc = new Canzone(5,a, "Stairway To Heaven", "Led Zeppelin I", " Rock", "-", i,"notAvaible", 1974);
-Canzone cc= new Canzone(4);
+//Canzone cc= new Canzone(4);
 		//	System.err.println(cc);
 			
 			//canzone.save(cc);
 		//canzone.update(cc);
-		canzone.delete(cc);
-			System.out.println("ALL DONE");
+		System.out.println(canzone.findAll().get(1).getTitolo());
+	
+		System.out.println("ALL DONE");
 		} catch (Exception e) {
 			// System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC
 			// driver\n"+e);
