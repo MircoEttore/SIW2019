@@ -20,7 +20,6 @@ public class EventoDaoJDBC implements EventoDao{
 		this.dataSource = dataSource;
 	}
 	
-	
 	@Override
 	public void save(Evento evento) throws SQLException {
 		try {

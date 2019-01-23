@@ -20,7 +20,5 @@ public class DatabaseManager {
 	public DAOFactory getDaoFactory() {
 		return daoFactory;
 	}
-	
-	
 
 }
