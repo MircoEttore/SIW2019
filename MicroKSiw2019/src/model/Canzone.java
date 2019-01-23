@@ -85,7 +85,6 @@ public class Canzone {
 
 	public Canzone(Integer id) {
 		this.idCanzone = id;
-		// TODO Auto-generated constructor stub
 	}
 
 

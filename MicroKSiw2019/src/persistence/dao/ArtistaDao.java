@@ -13,5 +13,4 @@ public interface ArtistaDao{
 	public void update(Artista artista); //Update
 	public void delete(Artista artista); //Delete	
 	
-	
 }
