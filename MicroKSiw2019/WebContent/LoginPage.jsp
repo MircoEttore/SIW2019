@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>LogiXZXZZn</title>
+<title>Login</title>
 
 <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 <script src="js/jquery-3.2.1.min.js"></script>
