@@ -7,12 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Artista;
-import model.Canzone;
-import model.IndiceDiGradimento;
+
 import model.Utente;
-import model.Utente;
-import model.Utente;
+
 import persistance.DataSource;
 import persistance.PersistenceException;
 import persistence.dao.UtenteDao;
