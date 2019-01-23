@@ -8,7 +8,7 @@ package persistance;
 		final private String dbURI;// = "jdbc:postgresql://localhost/test";
 		final private String userName;// = "postgres";
 		final private String password;// = "postgres";
-		public static DataSource dataSource ; 
+		public static DataSource dataSource ; //SINGLETON
 		
 
 		public static DataSource  getInstance () {
