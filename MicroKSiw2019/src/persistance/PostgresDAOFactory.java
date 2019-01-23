@@ -1,5 +1,9 @@
 package persistance;
 
+import persistance.JDBC.ArtistaDaoJDBC;
+import persistance.JDBC.CanzoneDaoJDBC;
+import persistance.JDBC.EventoDaoJDBC;
+import persistance.JDBC.UtenteDaoJDBC;
 import persistence.dao.ArtistaDao;
 import persistence.dao.CanzoneDao;
 import persistence.dao.CategorieDAO;
@@ -36,30 +40,26 @@ public class PostgresDAOFactory extends DAOFactory {
 	@Override
 	public CanzoneDao getCanzoneDao() {
 		// TODO Auto-generated method stub
-		return null;
+		return new CanzoneDaoJDBC(dataSource);
 	}
 
 	@Override
 	public ArtistaDao getArtistaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArtistaDaoJDBC(dataSource);
 	}
 
 	@Override
 	public EventoDao getEventoDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new EventoDaoJDBC(dataSource);
 	}
 
 	@Override
 	public CategorieDAO getCategoriaDAO() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public UtenteDao getUtenteDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new UtenteDaoJDBC (dataSource);
 	}
 }

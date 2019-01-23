@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import model.Artista;
 
-public interface ArtistaDao{	
+public interface ArtistaDao {	
 	public void save(Artista artista) throws SQLException;  // Create
 //	public Canzone findByPrimaryKey(String matricola);     // Retrieve
 	public List<Artista> findAll();       
