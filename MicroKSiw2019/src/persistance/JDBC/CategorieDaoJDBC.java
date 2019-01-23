@@ -49,7 +49,7 @@ public class CategorieDaoJDBC implements CategorieDAO  {
 			} catch (SQLException e) {
 				// e.printStackTrace();
 			}
-			return category;
+			return categorie;
 		}
 
 		@Override
