@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.sql.SQLException;
 import model.Artista;
 import model.Canzone;
+import model.IndiceDiGradimento;
 import persistance.DataSource;
 import persistance.PersistenceException;
 import persistence.dao.ArtistaDao;
@@ -112,8 +114,31 @@ public class ArtistaDaoJDBC implements ArtistaDao {
 
 	@Override
 	public List<Artista> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		 connection = this.dataSource.getConnection();
+		ArrayList<Artista> artisti = new ArrayList<>();
+		try {
+			Artista artista;
+			PreparedStatement statement;
+			String query = "select * from artista";
+			statement = connection.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				artista = new Artista();
+				artista.setIdArtista(result.getInt("idartista"));
+				artista.setNomeArtista(result.getString("nome"));
+				artisti.add(artista);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return artisti;
 	}
 
 	@Override
