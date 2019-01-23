@@ -1,6 +1,8 @@
 package persistance.JDBC;
 
+import model.Artista;
 import persistance.DAOFactory;
+import persistence.dao.ArtistaDao;
 
 public class JDBCExample {
 	public static void main(String args[]) {
@@ -10,10 +12,10 @@ public class JDBCExample {
 
 			Class.forName("org.postgresql.Driver");
 
-//			Artista s = new Artista() ; 
-//			s.setNomeArtista("suca mirco");
-//			ArtistaDao adao = factory.getArtistaDAO() ; 
-//			adao.save(s);
+			Artista s = new Artista() ; 
+			s.setNomeArtista("suca mirco");
+			ArtistaDao adao = factory.getArtistaDAO() ; 
+			adao.save(s);
 			
 			System.out.println("ALL DONE");
 			
