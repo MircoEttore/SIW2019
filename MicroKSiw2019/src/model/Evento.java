@@ -11,20 +11,9 @@ public class Evento {
 	private Date dataEvento;
 	private double prezzoEvento;
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	public Evento() {
 		super();
 	}
-
-
-
 
 	public Evento(String nomeEvento, int idEvento, String luogoEvento, Artista artista, Date dataEvento,
 			double prezzoEvento) {
@@ -36,9 +25,6 @@ public class Evento {
 		this.dataEvento = dataEvento;
 		this.prezzoEvento = prezzoEvento;
 	}
-	
-	
-	
 	
 	public String getNomeEvento() {
 		return nomeEvento;
@@ -76,9 +62,5 @@ public class Evento {
 	public void setPrezzoEvento(double prezzoEvento) {
 		this.prezzoEvento = prezzoEvento;
 	}
-	
-	
-	
-	
 
 }

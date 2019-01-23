@@ -1,5 +1,17 @@
 package persistence.dao;
 
-public interface EventoDao {
+import java.sql.SQLException;
+import java.util.List;
 
+import model.Artista;
+import model.Evento;
+
+public interface EventoDao {
+	public void save(Evento evento) throws SQLException; // Create
+
+	public List<Evento> findAll();
+
+	public void update(Evento evento); // Update
+
+	public void delete(Evento evento); // Delete
 }
