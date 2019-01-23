@@ -1,14 +1,12 @@
 package persistance.JDBC;
 
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
-import com.sun.xml.internal.ws.wsdl.parser.InaccessibleWSDLException;
+
 
 import model.Artista;
 import model.Canzone;
@@ -19,7 +17,7 @@ import persistance.PersistenceException;
 
 import persistence.dao.CanzoneDao;
 
-import java.util.LinkedList;
+import java.util.List;
 
 
 
@@ -136,7 +134,7 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 
 
 @Override
-public java.util.List<Canzone> findAll() {
+public List<Canzone> findAll() {
 
 	 connection = this.dataSource.getConnection();
 	ArrayList<Canzone>canzoni = new ArrayList<>();
@@ -192,6 +190,7 @@ public java.util.List<Canzone> findAll() {
 			}
 		}
 	}
+
 
 	
 }

@@ -5,7 +5,6 @@ package persistence.dao;
 import java.sql.SQLException;
 
 import model.Canzone;
-import java.util.LinkedList;
 import java.util.List;
 
 public interface CanzoneDao{	
