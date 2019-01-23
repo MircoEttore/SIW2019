@@ -2,6 +2,9 @@ package persistance;
 
 import persistence.dao.ArtistaDao;
 import persistence.dao.CanzoneDao;
+import persistence.dao.CategorieDAO;
+import persistence.dao.EventoDao;
+import persistence.dao.UtenteDao;
 
 public class PostgresDAOFactory extends DAOFactory {
 
@@ -40,6 +43,24 @@ public class PostgresDAOFactory extends DAOFactory {
 
 	@Override
 	public ArtistaDao getArtistaDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EventoDao getEventoDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CategorieDAO getCategoriaDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UtenteDao getUtenteDAO() {
 		// TODO Auto-generated method stub
 		return null;
 	}

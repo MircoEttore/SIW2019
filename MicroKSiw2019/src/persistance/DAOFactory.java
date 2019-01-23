@@ -2,6 +2,9 @@ package persistance;
 
 import persistence.dao.ArtistaDao;
 import persistence.dao.CanzoneDao;
+import persistence.dao.CategorieDAO;
+import persistence.dao.EventoDao;
+import persistence.dao.UtenteDao;
 
 public abstract class DAOFactory {
 
@@ -44,17 +47,17 @@ public abstract class DAOFactory {
 	
 	/**
 	 * Method to obtain a DATA ACCESS OBJECT
-	 * for the datatype 'Student'
+	 * for the datatype 'canzone'
 	 */
 	public abstract CanzoneDao getCanzoneDao();
 	
 	public abstract ArtistaDao getArtistaDAO();
 	
-	//public abstract CorsoDao getCorsoDAO();
+	public abstract EventoDao getEventoDAO();
 	
-//	public abstract CorsoDiLaureaDao getCorsoDiLaureaDAO();
+	public abstract CategorieDAO getCategoriaDAO();
 	
-	//public abstract DipartimentoDao getDipartimentoDAO();
+	public abstract	UtenteDao getUtenteDAO();
 
 	//public abstract persistence.UtilDao getUtilDAO();
 
