@@ -14,7 +14,6 @@ public class Utente {
 		
 		
 		public Utente( String name, String surname,String nickname, String email,boolean utente ,String password,String address) {
-			// TODO Auto-generated constructor stub
 			this.nickname=nickname;
 			this.nome = name;
 			this.cognome = surname;
