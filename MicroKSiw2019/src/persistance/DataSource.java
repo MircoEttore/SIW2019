@@ -8,10 +8,18 @@ package persistance;
 		final private String dbURI;// = "jdbc:postgresql://localhost/test";
 		final private String userName;// = "postgres";
 		final private String password;// = "postgres";
-		
+		public static DataSource dataSource ; 
 		
 
-		public DataSource(String dbURI, String userName, String password) {
+		public static DataSource  getInstance () {
+			if (dataSource == null)
+			{
+				dataSource = new DataSource("jdbc:postgresql://192.168.43.197:5432/Database_MicroK", "postgres", "postgres");
+			}
+			return dataSource ; 
+		}
+		
+		private DataSource(String dbURI, String userName, String password) {
 			this.dbURI=dbURI;
 			this.userName=userName;
 			this.password=password;

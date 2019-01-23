@@ -28,7 +28,7 @@ public class ArtistaDaoJDBC implements ArtistaDao {
 			e.printStackTrace();
 		}
 
-		}
+	}
 
 	private void addArtista(Artista artista) throws SQLException {
 		try {
@@ -67,11 +67,10 @@ public class ArtistaDaoJDBC implements ArtistaDao {
 		}
 	}
 
-
 	@Override
 	public List<Artista> findAll() {
 
-		 connection = this.dataSource.getConnection();
+		connection = this.dataSource.getConnection();
 		ArrayList<Artista> artisti = new ArrayList<>();
 		try {
 			Artista artista;
@@ -87,7 +86,7 @@ public class ArtistaDaoJDBC implements ArtistaDao {
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
-		}	 finally {
+		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
@@ -101,10 +100,10 @@ public class ArtistaDaoJDBC implements ArtistaDao {
 	public void update(Artista artista) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update="update artista SET nome= ? Where idartista=?";
+			String update = "update artista SET nome= ? Where idartista=?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, artista.getNomeArtista());
-			statement.setInt(2,artista.getIdArtista());
+			statement.setInt(2, artista.getIdArtista());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

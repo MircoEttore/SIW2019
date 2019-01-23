@@ -16,7 +16,6 @@ public class Artista {
 	public Artista(String nomeArtista) {
 		super();
 		this.nomeArtista = nomeArtista;
-		this.idArtista = idArtista;
 	}
 
 	public String getNomeArtista() {

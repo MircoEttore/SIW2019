@@ -26,6 +26,12 @@ public class Evento {
 		this.prezzoEvento = prezzoEvento;
 	}
 	
+	public Evento(String nomeEvento, String LuogoEvento, Date dataEvento, double prezzoEvento) {
+		this.nomeEvento = nomeEvento ; 
+		this.LuogoEvento = LuogoEvento ; 
+		this.dataEvento = dataEvento ; 
+	}
+
 	public String getNomeEvento() {
 		return nomeEvento;
 	}

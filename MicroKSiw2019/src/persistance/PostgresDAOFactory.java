@@ -18,8 +18,8 @@ public class PostgresDAOFactory extends DAOFactory {
 			//questi vanno messi in file di configurazione!!!	
 //			dataSource=new DataSource("jdbc:postgresql://52.39.164.176:5432/xx","xx","p@xx");
 		//	dataSource=new DataSource("jdbc:postgresql://localhost:5432/Segreteria2019","postgres","postgres");
-			dataSource=new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK","postgres","postgres");
-
+//			dataSource=new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK","postgres","postgres");
+			DataSource.getInstance() ;
 			
 		} 
 		catch (Exception e) {
