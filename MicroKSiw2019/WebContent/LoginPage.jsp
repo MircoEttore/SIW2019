@@ -13,11 +13,11 @@
 <body>
 	<table>
 		<tr>
-			<td style="width: 50%;">
+			<td style="width: 50%;bord">
 				<form method="POST" class="form-horizontal"
 					action="inviaCredenziali">
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="username">Username</label>
+						<label class="control-label col-sm-2" for="username">E-mail </label>
 						<div class="col-sm-5">
 							<input class="form-control" name="username" type="text" />
 						</div>
