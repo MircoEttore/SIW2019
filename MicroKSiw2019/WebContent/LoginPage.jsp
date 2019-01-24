@@ -13,9 +13,9 @@
 <body>
 	<table>
 		<tr>
-			<td style="width: 50%;bord">
-				<form method="POST" class="form-horizontal"
-					action="inviaCredenziali">
+			<td style="width: 50%;">
+				
+				<form method="POST" class="form-horizontal" action="Login">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="username">E-mail </label>
 						<div class="col-sm-5">
@@ -30,9 +30,10 @@
 					</div>
 					<div class="form-group">
 						<input class="control-label col-sm-2 btn btn-success"
-							type="submit" />
+							type="submit"/>
 					</div>
 				</form>
+				
 			</td>
 		</tr>
 	</table>
