@@ -15,7 +15,7 @@
 		<tr>
 			<td style="width: 50%;"> 
 				
-				<form method="POST" class="form-horizontal" action="Login">
+				<form method="POST" class="form-horizontal" action="LoginServlet">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="username">E-mail </label>
 						<div class="col-sm-5">

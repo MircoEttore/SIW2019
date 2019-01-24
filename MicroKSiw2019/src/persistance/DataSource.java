@@ -7,7 +7,7 @@ public class DataSource {
 	final private String dbURI;// = "jdbc:postgresql://localhost/test";
 	final private String userName;// = "postgres";
 	final private String password;// = "postgres";
-	public static DataSource dataSource; // SINGLETON
+	public static DataSource dataSource;
 
 	public DataSource(String dbURI, String userName, String password) {
 		this.dbURI = dbURI;

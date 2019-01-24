@@ -21,15 +21,15 @@ public class PostgresDAOFactory extends DAOFactory {
 
 	static {
 		try { 
-			Class.forName("org.postgresql.Driver") ; 
+			Class.forName("org.postgresql.Driver").newInstance() ; 
 			//questi vanno messi in file di configurazione!!!	
-//			dataSource=new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK","postgres","postgres");
-			dataSource=new DataSource("jdbc:postgresql://192.168.1.4:5432/Database_MicroK","postgres","postgres");
+			dataSource=new DataSource("jdbc:postgresql://localhost:5432/Database_MicroK","postgres","postgres");
+		//	dataSource=new DataSource("jdbc:postgresql://192.168.1.4:5432/Database_MicroK","postgres","postgres");
 			
 		} 
 		catch (Exception e) {
-			System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC driver\n"+e);
-			e.printStackTrace();
+			System.err.println("PostgresDAOFactory.class: failed to load Postgres JDBC driver\n"+e);
+		//	e.printStackTrace();
 		}
 	}
 

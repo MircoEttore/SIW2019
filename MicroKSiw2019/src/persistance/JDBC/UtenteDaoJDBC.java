@@ -85,7 +85,7 @@ public class UtenteDaoJDBC implements UtenteDao {
 	}
 
 	public void update(Utente utente) {
-		Connection connection = this.dataSource.getConnection();
+		 connection = this.dataSource.getConnection();
 		try {
 			String update = "update utente SET nome=?,cognome=?,nickname=?,email=?,utente_artista=? password=?,indirizzo=? WHERE id_utente=?";
 
@@ -130,26 +130,25 @@ public class UtenteDaoJDBC implements UtenteDao {
 	}
 	@Override
 	public Utente findPrimaryKey(String email, String password) {
-		Connection connection = this.dataSource.getConnection();
-		Utente u = null;
+		connection = this.dataSource.getConnection();
+		Utente u = new Utente ();
 		try {
 			PreparedStatement statement;
-			String query = "select * from utente where email=? && password=?";
+			String query = "select * from utente where email=? AND password=? ";
 			statement = (PreparedStatement) connection.prepareStatement(query);
-			statement.setString(1, email);
-			statement.setString(2, password);
+			statement.setString(1,email);
+			statement.setString(2,password);
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
-				u = new Utente();
-				statement.setString(1, u.getNome());
-				statement.setString(2, u.getCognome());
-				statement.setString(3, u.getNickname());
-				statement.setString(4, u.getEmail());
-				statement.setBoolean(5, u.isUtenteartista());
-				statement.setInt(6, u.getIdUtente());
-				statement.setString(7, u.getPassword());
-				statement.setString(8, u.getIndirizzo());
-				statement.executeUpdate();
+				
+				u.setIdUtente(results.getInt("id_utente"));
+				u.setNome(results.getString(("nome")));
+				u.setCognome(results.getString("cognome"));
+				u.setIndirizzo(results.getString("indirizzo"));
+				u.setEmail(results.getString("email"));
+				u.setPassword(results.getString("password"));
+				
+				
 			}
 		} catch (Exception e) {
 		} finally {

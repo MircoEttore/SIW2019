@@ -37,22 +37,22 @@ public class LoginServlet extends HttpServlet {
 	   throws ServletException, IOException {
 	  String email = request.getParameter("email");
 	  String password = request.getParameter("password");
-
+//	  new Utente("nome=?","cognome=?","nickname=?","email=?",false ,"password=?","indirizzo=?");
 	  Utente tryLogin = DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().findPrimaryKey(email, password) ; 
 
 	  if (email != null && password != null) {
 	   if (tryLogin != null) {
-	    HttpSession session = request.getSession(true);
+	/*    HttpSession session = request.getSession(true);
 	    if (session.getAttribute("username") != tryLogin.getNome()) {
 	     request.getSession().setAttribute("username", tryLogin.getNome());
 	     request.getSession().setAttribute("email", tryLogin.getEmail());
-	     request.getSession().setAttribute("userId", tryLogin.getIdUtente());
-	    }
-	    response.sendRedirect("index.jsp");
+	     request.getSession().setAttribute("userId", tryLogin.getIdUtente());*/
+	    //}
+	    response.sendRedirect("LoginFailed.jsp");
 	    response.setStatus(HttpServletResponse.SC_OK);
 	   } else {
 	    request.getSession().setAttribute("loginMessage", "Wrong username or password");
-	    response.sendRedirect("login.jsp");
+	    response.sendRedirect("LoginFailed.jsp");
 	    response.setStatus(HttpServletResponse.SC_OK);
 	   }
 	  }
