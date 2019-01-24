@@ -13,7 +13,7 @@
 <body>
 	<table>
 		<tr>
-			<td style="width: 50%;">
+			<td style="width: 50%;"> 
 				
 				<form method="POST" class="form-horizontal" action="Login">
 					<div class="form-group">
