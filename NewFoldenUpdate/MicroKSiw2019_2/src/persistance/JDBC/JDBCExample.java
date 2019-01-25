@@ -5,7 +5,6 @@ import model.Utente;
 import persistance.DAOFactory;
 import persistance.DatabaseManager;
 import persistence.dao.ArtistaDao;
-import persistence.dao.UtenteDao;
 
 public class JDBCExample {
 	public static void main(String args[]) {
