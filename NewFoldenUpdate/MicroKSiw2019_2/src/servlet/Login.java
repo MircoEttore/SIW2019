@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
 //		String logout = request.getParameter("logout");
 		String password = (String) request.getParameter("password");
 
-		Utente u= DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().findPrimaryKey("email","password");
+		Utente u= DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().findPrimaryKey(email,password);
 		
 		System.err.println(u.getEmail());
 		
