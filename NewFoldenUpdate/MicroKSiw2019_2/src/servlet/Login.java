@@ -14,7 +14,7 @@ import persistance.DatabaseManager;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet("Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
