@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registrazione</title>
 <link rel="stylesheet" href="bootstrap-4.1.3/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script src="js/jquery-3.2.1.min.js"></script>
