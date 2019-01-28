@@ -12,14 +12,15 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Singup</servlet-name>
-    <servlet-class>servlet.Singup</servlet-class>
+  <!--  
+    <servlet>
+    <servlet-name>SingUp</servlet-name>
+    <servlet-class>servlet.SingUp</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Singup</servlet-name>
-    <url-pattern>/Singup</url-pattern>
+    <servlet-name>SingUp</servlet-name>
+    <url-pattern>/SingUp</url-pattern>
   </servlet-mapping>
-  
+ -->
   
 </web-app>
