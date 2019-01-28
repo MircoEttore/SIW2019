@@ -22,6 +22,7 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/StyleSignUP.css">
 <!-- Main navigation -->
+</head>
 <header>
 	<!-- Navbar -->
 	<nav
@@ -38,8 +39,8 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent-7">
 				<ul class="navbar-nav mr-auto">
 
-
-					<li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+					<li class="nav-item">
+					<a class="nav-link" href="LoginPage.jsp">Login</a></li>
 				</ul>
 
 			</div>
@@ -79,7 +80,7 @@
 								<!--Header-->
 								<div class="text-center">
 									<h3 class="white-text">
-										<i class="fa fa-user white-text"></i> Ragistrazione:
+										<i class="fa fa-user white-text"></i> Registrazione:
 									</h3>
 									<hr class="hr-light">
 								</div>
@@ -112,7 +113,7 @@
 								</div>
 							
 						
-							<label class=myLabel for="form2"> Birth Date</label>
+							<label class=myLabel for="form2">Data di Nascita</label>
 							<div class="col-xs-8">
 							<div  class="form-inline">
 								<div class="col-xs-4 col-md-4">
@@ -231,7 +232,7 @@
 							 </div>
 							 </div>
 							<div class="text-center mt-4">
-								<button class="btn btn-indigo">Registrati</button>
+								<button class="btn btn-indigo ">Registrati</button>
 								<hr class="hr-light mb-3 mt-4">
 								<div class="inline-ul text-center d-flex justify-content-center">
 									<a class="p-2 m-2 tw-ic"> <i
