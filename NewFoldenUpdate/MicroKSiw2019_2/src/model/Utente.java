@@ -9,7 +9,12 @@ public class Utente {
 		private String nome;
 		private String cognome;
 		private boolean utenteartista;
-		
+		private String telefono;
+		private String indirizzo;
+		private String email;
+		private String password;
+		private String conferma;
+		private Carrello carrelloUtente;
 		
 		
 		
@@ -113,12 +118,6 @@ public class Utente {
 			this.carrelloUtente = carrelloUtente;
 		}
 
-		private String telefono;
-		private String indirizzo;
-		private String email;
-		private String password;
-		private String conferma;
-		private Carrello carrelloUtente;
 		
 
 		public Utente() {
