@@ -9,43 +9,65 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page session="true"%>
 
-	   
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>Login Page</title>
 
-<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-4.1.3/css/bootstrap.min.css"	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-4.1.3//js/bootstrap.min.js"></script>
+
+<!--Fontawesome CDN-->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/Style.css">
+
 </head>
 <body>
-	<table>
-		<tr>
-			<td style="width: 50%;"> 
-				
-				<form method="POST" class="form-horizontal" action="LoginServlet">
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="username">E-mail </label>
-						<div class="col-sm-5">
-							<input class="form-control" name="username" type="text" />
+	<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<h3>Sign In</h3>
+
+				</div>
+				<div class="card-body">
+					<form method="POST" class="form-horizontal" action="LoginServlet">
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input  class="form-control" name="username" type="text" placeholder="username">
+
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="password">Password</label>
-						<div class="col-sm-5">
-							<input class="form-control" name="password" type="password" />
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input class="form-control" name="password" type="password"placeholder="password">
 						</div>
+						<div class="row align-items-center remember">
+							<input type="checkbox">Remember Me
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Login"
+								class="btn float-right login_btn">
+						</div>
+					</form>
+				</div>
+				<div class="card-footer">
+					<div class="d-flex justify-content-center links">
+						Don't have an account?<a href="#">Sign Up</a>
 					</div>
-					<div class="form-group">
-						<input class="control-label col-sm-2 btn btn-success"
-							type="submit"/>
+					<div class="d-flex justify-content-center">
+						<a href="#">Forgot your password?</a>
 					</div>
-				</form>
-				
-			</td>
-		</tr>
-	</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
