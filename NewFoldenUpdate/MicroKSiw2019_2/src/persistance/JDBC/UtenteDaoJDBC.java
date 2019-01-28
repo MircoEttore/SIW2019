@@ -182,8 +182,11 @@ public class UtenteDaoJDBC implements UtenteDao {
 		return studCred;
 	}
 	
+	/*
+	 * */
 	
-	private Utente findByPrimaryKey(String email) {
+	
+	public Utente findByPrimaryKeyq(String email) {
 		Connection connection = this.dataSource.getConnection();
 		Utente u = new Utente ();
 		try {

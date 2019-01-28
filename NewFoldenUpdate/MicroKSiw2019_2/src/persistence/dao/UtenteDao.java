@@ -12,5 +12,7 @@ public interface UtenteDao {
 	public void delete(Utente canzone); //Delete	
 	public Utente findPrimaryKey(String email, String password) ;
 	UtenteCredenziali findByPrimaryKeyCredential(String email);
-	Utente findByPrimaryKey1(String email); 
+	Utente findByPrimaryKey1(String email);
+	Utente  findByPrimaryKeyq(String email);
+	
 }
