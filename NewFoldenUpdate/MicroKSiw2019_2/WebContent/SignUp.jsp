@@ -48,8 +48,8 @@
 	</nav>
 	<!-- Navbar -->
 	<!-- Full Page Intro -->
-	<div class="view"
-		style="background-image: url('http://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+	<div class="view">
+		
 		<!-- Mask & flexbox options-->
 		<div
 			class="mask rgba-gradient d-flex justify-content-center align-items-center">
@@ -232,7 +232,7 @@
 							 </div>
 							 </div>
 							<div class="text-center mt-4">
-								<button class="btn btn-indigo ">Registrati</button>
+								<button class="btn btn-block btn-primary" >Registrati</button>
 								<hr class="hr-light mb-3 mt-4">
 								<div class="inline-ul text-center d-flex justify-content-center">
 									<a class="p-2 m-2 tw-ic"> <i
