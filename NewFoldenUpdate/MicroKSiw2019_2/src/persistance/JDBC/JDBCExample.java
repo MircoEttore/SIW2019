@@ -5,6 +5,7 @@ import model.Utente;
 import persistance.DAOFactory;
 import persistance.DatabaseManager;
 import persistence.dao.ArtistaDao;
+import persistence.dao.UtenteDao;
 
 public class JDBCExample {
 	public static void main(String args[]) {
@@ -28,7 +29,14 @@ public class JDBCExample {
 			  System.out.println(tryLogin.getEmail());
 			  System.out.println(tryLogin.getPassword());
 			  System.out.println(tryLogin.getCognome());
-		//	Utente uu= new Utente("nome=?","cognome=?","nickname=?","email=?",false ,"password=?","indirizzo=?");
+			  
+			  Utente u = new Utente() ; 
+			  u.setNome("ciuccia");
+			  UtenteDao udao = DatabaseManager.getInstance().getDaoFactory().getUtenteDAO() ; 
+			  udao.save(u);
+			  
+			  
+			  //	Utente uu= new Utente("nome=?","cognome=?","nickname=?","email=?",false ,"password=?","indirizzo=?");
 		//	UtenteDao udao=factory.getUtenteDAO();
 		//	udao.save(uu);
 		//	System.out.println(uu.getEmail());

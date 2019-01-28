@@ -1,6 +1,8 @@
 package model;
 
-import sun.util.calendar.LocalGregorianCalendar.Date;
+import java.sql.Date;
+
+//import sun.util.calendar.LocalGregorianCalendar.Date;
 
 public class Evento {
 	
