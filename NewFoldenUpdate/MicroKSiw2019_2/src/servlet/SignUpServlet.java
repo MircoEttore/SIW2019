@@ -13,40 +13,22 @@ import persistance.DatabaseManager;
 import persistence.dao.UtenteDao;
 
 
-
-/**
- * Servlet implementation class SignUpServlet
- */
-@WebServlet("/SignUpServlet")
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SignUpServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+System.out.println("Suxcca");
 		Utente registrazioneUtente = new Utente();
-		registrazioneUtente.setNome(request.getParameter("name"));
+		registrazioneUtente.setNome(request.getParameter("nome"));
 		registrazioneUtente.setCognome(request.getParameter("cognome"));
-		
+		registrazioneUtente.setNickname(request.getParameter("nickname"));
+		registrazioneUtente.setUtenteartista(false);
 		registrazioneUtente.setIndirizzo(request.getParameter("indirizzo"));
 		registrazioneUtente .setEmail(request.getParameter("email"));
 		registrazioneUtente.setPassword(request.getParameter("password"));

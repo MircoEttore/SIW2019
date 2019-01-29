@@ -31,7 +31,7 @@ public class UtenteDaoJDBC implements UtenteDao {
 			statement.setString(2, utente.getCognome());
 			statement.setString(3, utente.getNickname());
 			statement.setString(4, utente.getEmail());
-//			statement.setBoolean(5, utente.isUtenteartista());
+			statement.setBoolean(5, utente.isUtenteartista());
 			statement.setString(6, utente.getPassword());
 			statement.setString(7, utente.getIndirizzo());
 			statement.executeUpdate();

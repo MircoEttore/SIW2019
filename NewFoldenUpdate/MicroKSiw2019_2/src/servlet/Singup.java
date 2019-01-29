@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Utente;
 import persistance.DAOFactory;
+import persistance.DatabaseManager;
 import persistence.dao.UtenteDao;
 
 public class Singup extends HttpServlet {
@@ -21,8 +22,15 @@ public class Singup extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
+		System.out.println("Suxcca");
+		Utente registrazioneUtente = new Utente();
+		registrazioneUtente.setNome(request.getParameter("nome"));
+		registrazioneUtente.setCognome(request.getParameter("cognome"));
+		registrazioneUtente.setIndirizzo(request.getParameter("indirizzo"));
+		registrazioneUtente .setEmail(request.getParameter("email"));
+		registrazioneUtente.setPassword(request.getParameter("password"));
+		DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().save(registrazioneUtente);}
+		/*
 		String nome = request.getParameter("nome") ; 
 		String cognome = request.getParameter("cognome") ; 
 		String nickname = request.getParameter("nickname") ; 
@@ -59,5 +67,5 @@ public class Singup extends HttpServlet {
 		System.out.println("SALVATO");
 
 	}
-
+*/
 }
