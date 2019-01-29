@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+id="WebApp_ID" 
+version="3.1">
   <display-name>MicroKSiw2019_2</display-name>
   <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- Login -->
+  
+  
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  <!--  
-    <servlet>
-    <servlet-name>SingUp</servlet-name>
-    <servlet-class>servlet.SingUp</servlet-class>
+
+
+<!-- Fine Logup  -->
+<!-- Singup  -->
+
+  <servlet>
+    <servlet-name>Singup</servlet-name>
+    <servlet-class>servlet.Singup</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>SingUp</servlet-name>
-    <url-pattern>/SingUp</url-pattern>
-  </servlet-mapping>
- -->
   
+  
+  <servlet-mapping>
+    <servlet-name>Singup</servlet-name>
+    <url-pattern>/Singup</url-pattern>
+  </servlet-mapping>
+<!-- Fine Singup  -->
+
 </web-app>

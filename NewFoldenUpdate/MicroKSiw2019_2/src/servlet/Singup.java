@@ -28,9 +28,11 @@ public class Singup extends HttpServlet {
 		String cognome = request.getParameter("cognome") ; 
 		String nickname = request.getParameter("nickname") ; 
 		String email = request.getParameter("email") ; 
-//		String utenteArtista = request.getParameter("checkbox"); 
+		String [] utenteArtista = request.getParameterValues("checkedRows"); 
 		String password = request.getParameter("password") ; 
 		String indirizzo = request.getParameter("indirizzo") ; 
+
+		System.out.println("Utente artista ha come valote questo : "+utenteArtista);
 		
 		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.POSTGRESQL);
 		try {

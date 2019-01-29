@@ -76,6 +76,10 @@
 			class="btn float-right login_btn">
 	</div>	
 
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input"  name="checkedRows"  id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
 	
 </form>
 
