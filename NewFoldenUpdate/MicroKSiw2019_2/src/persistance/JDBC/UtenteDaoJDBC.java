@@ -22,7 +22,8 @@ public class UtenteDaoJDBC implements UtenteDao {
 		this.dataSource = dataSource;
 	}
 
-	public void save(Utente utente) {
+	public int save(Utente utente) {
+		int status = -1;
 		Connection connection = this.dataSource.getConnection();
 		try {
 			String insert = "insert into utente(nome,cognome,nickname,email,utente_artista,password,indirizzo) values (?,?,?,?,?,?,?)";
@@ -34,19 +35,38 @@ public class UtenteDaoJDBC implements UtenteDao {
 			statement.setBoolean(5, utente.isUtenteartista());
 			statement.setString(6, utente.getPassword());
 			statement.setString(7, utente.getIndirizzo());
-			statement.executeUpdate();
+			//statement.executeUpdate();
 			System.out.println("Record inserita nella tabella!");
-
+            Utente u =findByPrimaryKeyq(utente.getEmail());
+            if (u!=null)
+            	return 1;
+            else
+            	statement.executeUpdate();
+            System.err.println(u.getEmail());
+			
+			ResultSet resultSet = statement.getGeneratedKeys();
+			while (resultSet.next()) {
+				utente.setIdUtente(resultSet.getInt(1));
+			}
+			status = 0;
 		} catch (SQLException e) {
-			throw new PersistenceException(e.getMessage());
+			String message = e.getMessage();
+			if (message.contains("Duplicate entry '" + utente.getEmail() + "' for key 'email_UNIQUE'")) {
+				status = 1;
+			}
+			// throw new RuntimeException(messatmp);
 		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				throw new PersistenceException(e.getMessage());
+				status = 2;
+//				e.printStackTrace();
+				// throw new RuntimeException(e.getMessage());
 			}
 		}
-	}
+
+		return status;
+		}
 
 	@Override
 	public List<Utente> findAll() {
@@ -131,15 +151,15 @@ public class UtenteDaoJDBC implements UtenteDao {
 	@Override
 	public Utente findByPrimaryKey1(String email) {
 		Connection connection = this.dataSource.getConnection();
-		Utente user = null;
+		Utente user = new Utente();
 		try {
 			PreparedStatement statement;
-			String query = "select * from user where email=?";
+			String query = "select * from utente where email=?";
 			statement = (PreparedStatement) connection.prepareStatement(query);
 			statement.setString(1, email);
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
-				user = new Utente();
+				
 				user.setIdUtente(results.getInt("id_utente"));
 				user.setNome(results.getString("name"));
 				user.setCognome(results.getString("cognome"));

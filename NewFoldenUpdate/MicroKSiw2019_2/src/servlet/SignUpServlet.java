@@ -32,8 +32,8 @@ System.out.println("Suxcca");
 		registrazioneUtente.setIndirizzo(request.getParameter("indirizzo"));
 		registrazioneUtente .setEmail(request.getParameter("email"));
 		registrazioneUtente.setPassword(request.getParameter("password"));
-		DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().save(registrazioneUtente);
-		/*switch (DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().save(registeringUser)) {
+		
+		switch (DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().save(registrazioneUtente)) {
 		case 0:
 			request.setAttribute("signupMessage", "Registration successfull");
 			System.out.println("Registration successfull");
@@ -50,7 +50,7 @@ System.out.println("Suxcca");
 			break;
 		}
 
-		this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);*/
+		this.getServletContext().getRequestDispatcher("/LoginPage.jsp").forward(request, response);
 	}
 	}
 	

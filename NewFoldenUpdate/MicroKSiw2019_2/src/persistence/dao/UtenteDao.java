@@ -6,7 +6,7 @@ import model.Utente;
 import persistance.UtenteCredenziali;
 
 public interface UtenteDao {
-	public void save(Utente utente);  // Create
+	public int save(Utente utente);  // Create
 	public List<Utente> findAll();       
 	public void update(Utente canzone); //Update
 	public void delete(Utente canzone); //Delete	
