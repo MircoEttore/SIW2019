@@ -71,6 +71,7 @@
 							data-wow-delay="0.3s">Learn more</a>
 					</div>
 					<!--Grid column-->
+					
 					<!--Grid column-->
 
 					<div class="col-md-6 col-xl-5 mb-4">
