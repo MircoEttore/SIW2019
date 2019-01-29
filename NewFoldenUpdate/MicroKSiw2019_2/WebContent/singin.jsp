@@ -27,7 +27,7 @@
 <link rel="stylesheet" type="text/css" href="css/Style.css">
 </head>
 <body>
-
+ 
 
 <form method="POST" class="form-horizontal" action="Singup">
 	<div class="input-group form-group">
