@@ -12,8 +12,6 @@ version="3.1">
   </welcome-file-list>
   
   <!-- Login -->
-  
-  
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>servlet.LoginServlet</servlet-class>
@@ -24,10 +22,8 @@ version="3.1">
     <servlet-name>Login</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-
-
-<!-- Fine Logup  -->
-<!-- Singup  -->
+<!-- Fine Login  -->
+<!-- Sing in-->
 
   <servlet>
     <servlet-name>Singup</servlet-name>
@@ -39,6 +35,6 @@ version="3.1">
     <servlet-name>Singup</servlet-name>
     <url-pattern>/Singup</url-pattern>
   </servlet-mapping>
-<!-- Fine Singup  -->
+<!-- Fine Sing up  -->
 
 </web-app>
