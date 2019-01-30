@@ -18,9 +18,6 @@ public class Singup extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Suxcca");
 		Utente registrazioneUtente = new Utente();

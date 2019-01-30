@@ -17,7 +17,7 @@ prefix="c" %>
 
 
 <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-<script src="js/jquery-3.2.1.min.js"></script>
+<!-- <script src="js/jquery-3.2.1.min.js"></script>-->
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <!-- 
 <link rel="stylesheet" href="css/common.css" type="text/css" />
