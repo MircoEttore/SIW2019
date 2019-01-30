@@ -2,6 +2,7 @@ package model;
 
 public class Artista {
 	
+	
 	private String nomeArtista;
 	private int idArtista;
 
