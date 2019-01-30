@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 import model.Artista;
 import model.Canzone;
@@ -18,6 +18,10 @@ import persistance.PersistenceException;
 import persistence.dao.CanzoneDao;
 
 import java.util.List;
+
+import org.apache.jasper.tagplugins.jstl.core.Set;
+
+
 
 
 
@@ -191,6 +195,85 @@ public List<Canzone> findAll() {
 		}
 	}
 
+	@Override
+	public List<Canzone> findCanzone(String searchQuery) {
+		 connection = this.dataSource.getConnection();
+		
+		ArrayList<Canzone> listaCanzoni = new ArrayList<>();
+		String[] someQueries = searchQuery.split(" ");
+		ArrayList<String> queries = new ArrayList<String>();
+		
+		queries.add(searchQuery);
+		for (String s : someQueries) {
+			queries.add(s);
+		}
+		
+		
+		
+		try {
+			for (String search : queries) {
+				PreparedStatement statement;
+				String query = "SELECT * FROM canzone WHERE canzone.titolo LIKE ? OR canzone.artista LIKE  ?  OR  canzone.genere LIKE ? OR  canzone.album LIKE ?";
+				statement = connection.prepareStatement(query);
+				statement.setString(1, "%"+search+"%");
+				statement.setString(2, "%"+search+"%");
+				statement.setString(3, "%"+search+"%");
+				statement.setString(4, "%"+search+"%");
+				ResultSet result = statement.executeQuery();
+			//	System.out.println(search);
+				int i=0;
+				while (result.next()) {
+					Canzone canzone = new Canzone();
+					canzone.setIdCanzone(result.getInt("idcanzone"));				
+					canzone.setTitolo(result.getString("titolo"));
+					canzone.setArtista(new Artista (result.getString("artista")));
+					canzone.setGenere(result.getString("genere"));
+					canzone.setAnno(result.getInt("anno"));
+					canzone.setCasaDiscografica(result.getString("casadiscografica"));
+					canzone.setIndiceDiGradimento(new IndiceDiGradimento(result.getInt("IndiceDiGradimento")));
+					canzone.setUrl(result.getString("url"));
+					canzone.setAlbum(result.getString("album"));
+				
+					
+					
 
-	
+					
+					if (!cercaDuplicato(canzone,listaCanzoni)) {
+						
+						listaCanzoni.add(canzone);
+					
+					}
+			
+				}
+				//System.out.println(i);
+			}
+			
+
+			 connection.close();
+
+			
+
+		} catch (SQLException e) {
+//			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+//				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return listaCanzoni;
+	}
+
+	private boolean cercaDuplicato (Canzone c,ArrayList<Canzone> lista ) {
+		
+		for (Canzone cc :lista)
+		{
+			if (cc.getIdCanzone()==c.getIdCanzone())
+				return true;
+		}
+		
+		
+		return false;
+	}
 }
