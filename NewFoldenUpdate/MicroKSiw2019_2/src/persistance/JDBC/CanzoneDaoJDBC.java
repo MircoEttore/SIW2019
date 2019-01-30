@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-
 import model.Artista;
 import model.Canzone;
 import model.IndiceDiGradimento;
@@ -18,12 +15,6 @@ import persistance.PersistenceException;
 import persistence.dao.CanzoneDao;
 
 import java.util.List;
-
-import org.apache.jasper.tagplugins.jstl.core.Set;
-
-
-
-
 
 public class CanzoneDaoJDBC implements CanzoneDao {
 	private DataSource dataSource;
