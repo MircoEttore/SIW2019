@@ -35,13 +35,13 @@ System.out.println("Suxcca");
 		
 		switch (DatabaseManager.getInstance().getDaoFactory().getUtenteDAO().save(registrazioneUtente)) {
 		case 0:
-			request.setAttribute("signupMessage", "Registration successfull");
+			request.setAttribute("signupMessage", "Registrazione effettuata con successo");
 			System.out.println("Registration successfull");
 			break;
 
 		case 1:
-			request.setAttribute("signupMessage", "User already exists");
-			System.out.println("User already exists");
+			request.setAttribute("signupMessage", "Utente già esistente");
+			System.out.println("Utente già esistente");
 			break;
 
 		default:

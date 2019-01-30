@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import model.Utente;
 
 import persistance.DataSource;
@@ -283,4 +284,106 @@ public class UtenteDaoJDBC implements UtenteDao {
 		return u;
 
 	}
+	private void addInCart(int id_carrello, int id_canzone) {
+		Connection connection = this.dataSource.getConnection();
+
+		try {
+			String insert = "insert into lista_canzoni_carrello (id_carrello,id_canzone) values(?,?)";
+			PreparedStatement statement4 = connection.prepareStatement(insert);
+			statement4.setInt(1, id_carrello);
+			statement4.setInt(2, id_canzone);
+			statement4.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public int addToCart(String email, int canzone_id) {
+		Connection connection = this.dataSource.getConnection();
+		int utente_id = 0;
+		int carrello_id = 0;
+		int status = -1;
+		try {
+			String getUtenteId = "select id_utente from utente where email=?";
+			PreparedStatement getUtente_id = connection.prepareStatement(getUtenteId);
+			getUtente_id.setString(1, email);
+			ResultSet resultSet = getUtente_id.executeQuery();
+			if (resultSet.next()) {
+				utente_id = resultSet.getInt(1);
+			}
+
+			String getCartId = "select id_carrello from carrello where utente_id = ?";
+			PreparedStatement statement = connection.prepareStatement(getCartId);
+			statement.setInt(1, utente_id);
+
+			ResultSet resultSet2 = statement.executeQuery();
+
+			if (resultSet2.next()) {
+				carrello_id = resultSet2.getInt(1);
+			}
+
+			String getListaCanzoniCarrello = "select * from lista_canzoni_carrello where id_carrello = ? && id_canzone =?";
+			PreparedStatement getListaCanzoniCarrelloStatement = connection.prepareStatement(getListaCanzoniCarrello);
+			getListaCanzoniCarrelloStatement.setInt(1, carrello_id);
+			getListaCanzoniCarrelloStatement.setInt(2, canzone_id);
+			ResultSet resultSet3 = getListaCanzoniCarrelloStatement.executeQuery();
+
+			int cartItemsListID = 0;
+			while (resultSet3.next()) {
+				cartItemsListID = resultSet.getInt(1);
+			}
+			if (cartItemsListID == 0) {
+				addInCart(carrello_id, canzone_id);
+				
+			} 
+
+			status = 0;
+		} catch (SQLException e) {
+			String message = e.getMessage();
+			if (message.contains("Duplicate entry")) {
+				status = 1;
+
+			}
+//			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				status = 2;
+//				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return status;
+	}
+	
+	
+	
+	public void RimuoviDalCarrello(String email, int id_canzone) {
+
+		Connection connection = this.dataSource.getConnection();
+		try {
+			String select = "delete lista_canzoni_carrello from utente, carrello, lista_canzoni_carrello "
+					+ "where utente.email = ? && carrello.id_utente = user.id_utente && lista_canzoni_carrello.id_carrello = carrello.id_carrello && lista_canzoni_carrello.id_canzone = ?";
+
+			PreparedStatement statement = connection.prepareStatement(select);
+			statement.setString(1, email);
+			statement.setInt(2, id_canzone);
+			statement.execute();
+
+		} catch (SQLException e) {
+//			throw new PersistenceException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+//				throw new PersistenceException(e.getMessage());
+			}
+		}
+	}
+
+	
+	
+	
 }

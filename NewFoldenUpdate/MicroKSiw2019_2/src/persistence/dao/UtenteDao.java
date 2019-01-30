@@ -14,5 +14,6 @@ public interface UtenteDao {
 	UtenteCredenziali findByPrimaryKeyCredential(String email);
 	Utente findByPrimaryKey1(String email);
 	Utente  findByPrimaryKeyq(String email);
+	int addToCart(String email, int item_id);
 	
 }
