@@ -87,7 +87,7 @@ section h3.section-subheading {
 }
 
 ::selection {
-  background: #387044;
+  background: #77bb86;
   text-shadow: none;
 }
 
@@ -683,4 +683,8 @@ ul.social-buttons li a {
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #387044;
+}
+
+.row-centred {
+	margin: auto; max-width: 300px;
 }
