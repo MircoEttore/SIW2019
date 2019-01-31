@@ -186,15 +186,7 @@ header.masthead {
 	background-position: center center;
 	background-size: cover
 }
-header.mainpagehead {
-	text-align: center;
-	color: #fff;
-	background-image: url(../img/headermainpage-bg.jpg);
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position: center center;
-	background-size: cover
-}
+
 
 header.masthead .intro-text {
 	padding-top: 150px;

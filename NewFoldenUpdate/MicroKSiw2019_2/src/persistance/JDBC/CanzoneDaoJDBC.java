@@ -151,8 +151,6 @@ public List<Canzone> findAll() {
 			canzone.setUrl(result.getString("url"));
 			canzone.setAlbum(result.getString("album"));
 			canzone.setIdCanzone(result.getInt("idcanzone"));
-					
-						
 			canzoni.add(canzone);
 		}
 	} catch (SQLException e) {

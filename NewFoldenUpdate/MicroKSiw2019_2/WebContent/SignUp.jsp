@@ -50,8 +50,7 @@
 	<div class="view">
 
 		<!-- Mask & flexbox options-->
-		<div
-			class="mask rgba-gradient d-flex justify-content-center align-items-center">
+		<div class="mask rgba-gradient d-flex justify-content-center align-items-center">
 			<!-- Content -->
 			<div class="container">
 				<!--Grid row-->
@@ -150,6 +149,8 @@
 									</div>
 								</div>
 							</div>
+						</div>
+							
 						</form>
 					</div>
 
@@ -164,7 +165,6 @@
 		<!-- Content -->
 	</div>
 	<!-- Mask & flexbox options-->
-	</div>
 	<!-- Full Page Intro -->
 </header>
 <!-- Main navigation -->
