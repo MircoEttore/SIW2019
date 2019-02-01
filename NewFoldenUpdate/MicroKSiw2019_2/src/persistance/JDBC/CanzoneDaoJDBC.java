@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import model.Artista;
 import model.Canzone;
 import model.IndiceDiGradimento;
@@ -15,6 +18,7 @@ import persistance.PersistenceException;
 import persistence.dao.CanzoneDao;
 
 import java.util.List;
+
 
 public class CanzoneDaoJDBC implements CanzoneDao {
 	private DataSource dataSource;
@@ -29,7 +33,7 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 		this.connection = this.dataSource.getConnection();
 //Insert tupla
 		try {
-			String insert = "insert into canzone(titolo,artista,genere,anno,casadiscografica,indicedigradimento,url,album) values (?,?,?,?,?,?,?,?)";
+			String insert = "insert into canzone(titolo,artista,genere,anno,casadiscografica,indicedigradimento,url,album,prezzo) values (?,?,?,?,?,?,?,?,?)";
 			statement = connection.prepareStatement(insert);
 			statement.setString(1, canzone.getTitolo());
 			statement.setString(2, canzone.getArtista().getNomeArtista());
@@ -39,6 +43,7 @@ public class CanzoneDaoJDBC implements CanzoneDao {
 			statement.setInt(6, canzone.getIndiceDiGradimento().getVotoAttuale());
 			statement.setString(7, canzone.getUrl());
 			statement.setString(8, canzone.getAlbum());
+			statement.setDouble(9, canzone.getPrezzo());
 			statement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -151,6 +156,7 @@ public List<Canzone> findAll() {
 			canzone.setUrl(result.getString("url"));
 			canzone.setAlbum(result.getString("album"));
 			canzone.setIdCanzone(result.getInt("idcanzone"));
+			canzone.setPrezzo(result.getDouble("prezzo"));
 			canzoni.add(canzone);
 		}
 	} catch (SQLException e) {
@@ -164,6 +170,100 @@ public List<Canzone> findAll() {
 	}
 	return canzoni;
 }
+
+
+
+
+@Override
+public List<Canzone> findForGenere(String genere) {
+
+	 connection = this.dataSource.getConnection();
+	ArrayList<Canzone>canzoni = new ArrayList<>();
+	try {
+		Canzone canzone;
+		PreparedStatement statement;
+		String query = "select * from canzone where genere= ?";
+		statement = connection.prepareStatement(query);
+		statement.setString(1,genere);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			canzone = new Canzone();
+			canzone.setIdCanzone(result.getInt("idcanzone"));				
+			canzone.setTitolo(result.getString("titolo"));
+			canzone.setArtista(new Artista (result.getString("artista")));
+			canzone.setGenere(result.getString("genere"));
+			canzone.setAnno(result.getInt("anno"));
+			canzone.setCasaDiscografica(result.getString("casadiscografica"));
+			canzone.setIndiceDiGradimento(new IndiceDiGradimento(result.getInt("IndiceDiGradimento")));
+			canzone.setUrl(result.getString("url"));
+			canzone.setAlbum(result.getString("album"));
+			canzone.setIdCanzone(result.getInt("idcanzone"));
+			canzone.setPrezzo(result.getDouble("prezzo"));
+			canzoni.add(canzone);
+		}
+	} catch (SQLException e) {
+		throw new PersistenceException(e.getMessage());
+	}	 finally {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}
+	}
+	return canzoni;
+}
+
+
+@Override
+public List<Canzone> findTop5ForGenere(String genere) {
+
+	 connection = this.dataSource.getConnection();
+	ArrayList<Canzone>canzoni = new ArrayList<>();
+	try {
+		Canzone canzone;
+		PreparedStatement statement;
+		String query = "select * from canzone where genere= ?";
+		statement = connection.prepareStatement(query);
+		statement.setString(1,genere);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			canzone = new Canzone();
+			canzone.setIdCanzone(result.getInt("idcanzone"));				
+			canzone.setTitolo(result.getString("titolo"));
+			canzone.setArtista(new Artista (result.getString("artista")));
+			canzone.setGenere(result.getString("genere"));
+			canzone.setAnno(result.getInt("anno"));
+			canzone.setCasaDiscografica(result.getString("casadiscografica"));
+			canzone.setIndiceDiGradimento(new IndiceDiGradimento(result.getInt("IndiceDiGradimento")));
+			canzone.setUrl(result.getString("url"));
+			canzone.setAlbum(result.getString("album"));
+			canzone.setIdCanzone(result.getInt("idcanzone"));
+			canzone.setPrezzo(result.getDouble("prezzo"));
+			canzoni.add(canzone);
+		}
+		
+	
+		Collections.sort(canzoni, new Comparator<Canzone>(){
+			@Override
+			public int compare(Canzone o1, Canzone o2){
+				return ((Integer)o1.getIndiceDiGradimento().getVotoAttuale()).compareTo(o2.getIndiceDiGradimento().getVotoAttuale());
+			}
+		});
+		
+		Collections.reverse(canzoni);
+	
+	} catch (SQLException e) {
+		throw new PersistenceException(e.getMessage());
+	}	 finally {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}
+	}
+	return canzoni;
+}
+
 
 	@Override
 	public void delete(Canzone canzone) {
@@ -222,6 +322,7 @@ public List<Canzone> findAll() {
 					canzone.setIndiceDiGradimento(new IndiceDiGradimento(result.getInt("IndiceDiGradimento")));
 					canzone.setUrl(result.getString("url"));
 					canzone.setAlbum(result.getString("album"));
+					canzone.setPrezzo(result.getDouble("prezzo"));
 				
 					
 					

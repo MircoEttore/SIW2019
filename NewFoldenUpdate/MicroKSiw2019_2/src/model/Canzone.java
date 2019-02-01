@@ -15,7 +15,8 @@ public class Canzone {
     private IndiceDiGradimento indiceDiGradimento;
 	private Integer anno;
 	private String url;
-	
+	private double prezzo;
+	private boolean buy_now;
 	public String getUrl() {
 		return url;
 	}
@@ -38,7 +39,7 @@ public class Canzone {
 	
 
 	public Canzone(int idCanzone, Artista artista, String titolo, String album, String genere, String casaDiscografica,
-			IndiceDiGradimento indiceDiGradimento, Integer anno) {
+			IndiceDiGradimento indiceDiGradimento, Integer anno,double prezzo) {
 		super();
 		this.idCanzone = idCanzone;
 		this.artista = artista;
@@ -48,6 +49,7 @@ public class Canzone {
 		this.casaDiscografica = casaDiscografica;
 		this.setIndiceDiGradimento(indiceDiGradimento);
 		this.anno = anno;
+		this.setPrezzo(prezzo);
 	}
 	public Canzone( Artista artista, String titolo, String album, String genere, String casaDiscografica,
 			IndiceDiGradimento indiceDiGradimento,String url ,Integer anno) {
@@ -168,6 +170,30 @@ public class Canzone {
 
 	public void setIndiceDiGradimento(IndiceDiGradimento indiceDiGradimento) {
 		this.indiceDiGradimento = indiceDiGradimento;
+	}
+
+
+
+	public double getPrezzo() {
+		return prezzo;
+	}
+
+
+
+	public void setPrezzo(double prezzo) {
+		this.prezzo = prezzo;
+	}
+
+
+
+	public boolean isBuy_now() {
+		return buy_now;
+	}
+
+
+
+	public void setBuy_now(boolean buy_now) {
+		this.buy_now = buy_now;
 	}
 	
 	

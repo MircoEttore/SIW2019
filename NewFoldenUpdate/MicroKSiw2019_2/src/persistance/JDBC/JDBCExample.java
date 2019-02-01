@@ -39,7 +39,7 @@ public class JDBCExample {
 			  */
 			  Utente u = new Utente() ; 
 			  u.setNome("ciuccia");
-			  CanzoneDao udao = DatabaseManager.getInstance().getDaoFactory().getCanzoneDao() ; 
+		/*	  CanzoneDao udao = DatabaseManager.getInstance().getDaoFactory().getCanzoneDao() ; 
 			 List<Canzone>c=new ArrayList();
 			  
 		  c=udao.findCanzone("Urlando Contro Il Barbiere");
@@ -48,7 +48,7 @@ public class JDBCExample {
 				  System.out.println( canzone.getTitolo());
 			}
 		
-	
+	*/
 			  
 			  //	Utente uu= new Utente("nome=?","cognome=?","nickname=?","email=?",false ,"password=?","indirizzo=?");
 		//	UtenteDao udao=factory.getUtenteDAO();
