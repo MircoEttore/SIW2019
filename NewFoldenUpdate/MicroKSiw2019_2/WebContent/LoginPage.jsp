@@ -23,7 +23,7 @@
 
 <!--Fontawesome CDN-->
 <link rel="stylesheet"
-	href="fontawesome-free-5.3.1-web/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+href="fontawesome-free-5.3.1-web/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/Style.css">
 </head>
 <body>
