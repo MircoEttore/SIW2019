@@ -18,6 +18,9 @@ public interface CanzoneDao{
 	public void delete(Canzone canzone); //Delete	
 	List<Canzone> findCanzone(String searchQuery);
 	
+	List<Canzone> findForGenere(String genere);
+	List<Canzone> findTop5ForGenere(String genere);
+	
 	
 }
 
