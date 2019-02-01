@@ -1,20 +1,21 @@
 @charset "ISO-8859-1";
 
-    body,html{
+ 
+ /*   body,html{
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    background: #e74c3c !important;
-    }
+    background: #c0c0c0!important;
+    }*/
 
     .searchbar{
     margin-bottom: auto;
     margin-top: auto;
-    height: 60px;
+    height: auto;
     background-color: #353b48;
     border-radius: 30px;
-    padding: 10px;
+    padding: 2%;
     }
 
     .search_input{
@@ -24,20 +25,20 @@
     background: none;
     width: 0;
     caret-color:transparent;
-    line-height: 40px;
+    line-height: 20%;
     transition: width 0.4s linear;
     }
 
     .searchbar:hover > .search_input{
     padding: 0 10px;
-    width: 450px;
-    caret-color:red;
+    width: 30% ;
+    caret-color:#ffffff;
     transition: width 0.4s linear;
     }
 
     .searchbar:hover > .search_icon{
     background: white;
-    color: #e74c3c;
+    color: #c0c0c0;
     }
 
     .search_icon{
