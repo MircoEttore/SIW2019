@@ -13,17 +13,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<title>Simple Sidebar - Start Bootstrap Template</title>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap-4.1.3//js/bootstrap.min.js"></script>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<!-- Custom styles for this template -->
+   <link  href="css/searchbar.css" rel="stylesheet" type="text/css">
+<link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container h-100">

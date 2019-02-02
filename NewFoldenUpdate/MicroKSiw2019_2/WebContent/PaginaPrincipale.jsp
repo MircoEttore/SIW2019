@@ -23,22 +23,22 @@
 <body>
 	<!-- inizio navbar -->
 	<div class="row">
-		<nav class="navbar bg-light fixed-top">
-			<a class="navbar-brand">Navbar</a>
-			<div class="d-flex justify-content-center h-100">
-			<div class="col-md-4"><img class="logo" alt="MicroK_logo" src="img/Icon.svg"></div>
+<nav class="navbar navbar-light bg-light fixed-top">
+  <a class="scritta navbar-brand">Navbar</a>
+	<div class="container">
+		<form class="form-inline m-auto">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> 
+			<button class="btn btn-outline-success my-20 my-sm-10" type="submit">Search</button>
+		</form>
+		<form>
+			<div class="pull-left">
+				<ul class="nav navbar-nav">
+					<li><button type="submit" class="btn navbar-btn btn-danger" name="logout" id="logout"  value="Log Out">Log Out</button></li>
+				</ul>
 			</div>
-			<div class="container">
-				<form class="form-inline m-auto">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-					<div class="form-inline">
-						<a class="navbar-string  mr-sm-2" href="">Carrello</a> <a href="">Logout</a>
-					</div>
-				</form>
-			</div>
-		</nav>
+		</form>
+	</div>
+</nav>
 	</div>
 	<!-- fine navbar -->
 

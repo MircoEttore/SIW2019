@@ -10,10 +10,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page session="true"%>
 
-
-
-
-
 <link href="css/search.css" rel="stylesheet">
 
 <!DOCTYPE html>
@@ -39,7 +35,6 @@
 						class="search_icon"><i class="fas fa-search"></i></a>
 				</div>
 			</form>
-
 		</div>
 	</div>
 	<div class="col-sm-9 padding-right">
